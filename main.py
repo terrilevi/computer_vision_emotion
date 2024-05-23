@@ -2,7 +2,7 @@ import pandas as pd
 from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
-tab1, tab2 = st.tabs(["Haz un  dibujito", "Sube una imágen"])
+tab1, tab2 = st.tabs(["Haz un  dibujito ✍️", "Sube una imágen ⬆️"])
 
 with tab1:
     import streamlit as st
@@ -46,7 +46,7 @@ with tab1:
 
 with tab2:
     import streamlit as st
-    st.header("O...sube una imágen")
+    st.header("Sube una imágen")
     source_img = st.file_uploader(
     "Escoge una imágen...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
 
@@ -57,5 +57,3 @@ with tab2:
             #aqui irá el modelo 
         else:
             st.write("No hay imagen")
-
-
