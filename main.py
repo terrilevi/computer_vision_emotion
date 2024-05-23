@@ -7,13 +7,13 @@ st.title("Haz un dibujito")
 
 # Specify canvas parameters in application
 drawing_mode = st.sidebar.selectbox(
-    "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")
+    "Drawing tool:", ("punto", "dibujar libre", "línea", "rectángulo", "círculo", "transform")
 )
 
-stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
+stroke_width = st.sidebar.slider("Ancho del trazo: ", 1, 25, 3)
 if drawing_mode == 'point':
-    point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
-stroke_color = st.sidebar.color_picker("Stroke color hex: ")
+    point_display_radius = st.sidebar.slider("Tamaño del punto: ", 1, 25, 3)
+stroke_color = st.sidebar.color_picker("Color del trazo: ")
 #bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
 
 realtime_update = st.sidebar.checkbox("Update in realtime", True)
