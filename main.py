@@ -8,7 +8,7 @@ with tab1:
     import streamlit as st
     st.header("Haz un dibujito")
 
-    # Specify canvas parameters in application
+    # Especifica los parametros canvas de la aplicacion canvas
     drawing_mode = st.selectbox(
         "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")
     )
