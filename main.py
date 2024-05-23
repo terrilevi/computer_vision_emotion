@@ -7,16 +7,16 @@ st.title("Haz un dibujito")
 
 # Specify canvas parameters in application
 drawing_mode = st.sidebar.selectbox(
-    "Drawing tool:", ("punto", "dibujar libre", "línea", "rectángulo", "círculo", "transform")
+    "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")
 )
 
 stroke_width = st.sidebar.slider("Ancho del trazo: ", 1, 25, 3)
 if drawing_mode == 'point':
     point_display_radius = st.sidebar.slider("Tamaño del punto: ", 1, 25, 3)
-stroke_color = st.sidebar.color_picker("Color del trazo: ")
+stroke_color = st.sidebar.color_picker("Color: ")
 #bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
 
-realtime_update = st.sidebar.checkbox("Update in realtime", True)
+realtime_update = st.sidebar.checkbox("Actualizar en tiempo real", True)
 
 # Create a canvas component
 canvas_result = st_canvas(
@@ -39,5 +39,7 @@ if st.button("Predict"):
         #aqui irá el modelo 
     else:
         st.write("No hay imagen")
+
+
 
 
