@@ -30,7 +30,7 @@ canvas_result = st_canvas(
     point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
     key="canvas",
 )
-
+# Do something interesting with the image data 
 # Add a Predict button
 if st.button("Predict"):
     if canvas_result.image_data is not None:
