@@ -85,9 +85,8 @@ with tab2:
     source_img = st.file_uploader(
     "Escoge una imágen...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
     
-    modelos_subidos = {'Modelo 1 (best.pt)': model, 'Modelo 2 (last.pt)': model2}
-    option = st.selectbox("Escoger modelo: ", list(modelos_subidos.keys()))
-
+    modelos_disponibles = {'Modelo 1 (best.pt)': model, 'Modelo 2 (last.pt)': model2}
+    option = st.selectbox("Escoja modelo: ", list(modelos_disponibles.keys()))
 
     if st.button("Predecir imagen"):
         if source_img is not None:
@@ -96,7 +95,8 @@ with tab2:
             image = Image.open(source_img)
             image = image.convert('RGB')
 
-            modelo_seleccionado = modelos_subidos[option]
+            # Obtener el modelo seleccionado
+            selected_model = modelos_disponibles[option]
 
             # Config del modelo
             config = {
