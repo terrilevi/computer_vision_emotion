@@ -3,11 +3,11 @@ import cv2
 from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
-from ultralytics import YOLO
-import yolov8
+#from ultralytics import YOLO
+#import yolov8
 
 #Importando MODELO
-model = YOLO('best.pt')
+#model = YOLO('best.pt')
 
 tab1, tab2 = st.tabs(["Haz un  dibujito ✍️", "Sube una imágen ⬆️"])
 
