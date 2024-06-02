@@ -3,6 +3,7 @@ import cv2
 from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
+import ultralytics
 from ultralytics import YOLO
 #import yolov8
 
