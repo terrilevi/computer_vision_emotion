@@ -20,7 +20,7 @@ with tab1:
 
     # Especifica los parametros canvas de la aplicacion canvas
     drawing_mode = st.selectbox(
-        "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")
+        "Drawing tool:", ("freedraw", "point", "line", "rect", "circle", "transform")
     )
 
     stroke_width = st.slider("Ancho del trazo: ", 1, 25, 3)
@@ -34,7 +34,6 @@ with tab1:
 
     modelos_disponibles = {'Modelo 1 (best.pt)': model, 'Modelo 2 (last.pt)': model2}
     option = st.selectbox("Escoja modelo: ", list(modelos_disponibles.keys()))
-
     # Create a canvas component
     canvas_result = st_canvas(
         fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
@@ -42,7 +41,10 @@ with tab1:
         stroke_color=stroke_color,
         background_color=bg_color,
         update_streamlit=realtime_update,
-        height=150,
+        ## box draw size
+        height=640,  # Ajustado alto
+        width=640,   # Ajustado ancho
+
         drawing_mode=drawing_mode,
         point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
         key="canvas",
@@ -60,8 +62,14 @@ with tab1:
             # Obtener el modelo seleccionado
             selected_model = modelos_disponibles[option]
             
-            # Realizar predicción en el dibujo
-            results = selected_model(image)
+            # Config del modelo
+            config = {
+                "conf": 0.2,   
+                "imgsz": 640,  
+            }
+        
+            # Realizar predicción en el dibujo con configuración
+            results = selected_model(image, **config)
             
             # Mostrar los resultados de la predicción
             im = results[0].plot()
@@ -90,8 +98,14 @@ with tab2:
 
             modelo_seleccionado = modelos_subidos[option]
 
-            # Realizar predicción en la imagen subida
-            results = modelo_seleccionado(image)
+            # Config del modelo
+            config = {
+                "conf": 0.2,   
+                "imgsz": 640,  
+            }
+        
+            # Realizar predicción en el dibujo con configuración
+            results = selected_model(image, **config)
             
             # Mostrar los resultados de la predicción
             im = results[0].plot()
