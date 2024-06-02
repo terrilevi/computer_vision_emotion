@@ -6,6 +6,8 @@ from streamlit_drawable_canvas import st_canvas
 import ultralytics
 from ultralytics import YOLO
 
+st.image("logo-upch-ing-des.webp", use_column_width=True)
+
 #Importando MODELO
 model = YOLO('best.pt')
 model2 = YOLO('last.pt')
