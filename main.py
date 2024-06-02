@@ -44,33 +44,39 @@ with tab1:
     )
 
 
+
     # Add a Predict button
     if st.button("Predecir dibujo"):
         if canvas_result.image_data is not None:
             st.write("Imagen procesada")
-            st.image(canvas_result.image_data)
-            #aqui irá el modelo 
-            #result = model(canvas_result.image_data, imgsz = 640)
-            #im = result[0].plot()
-            #cv2_imshow(im)
+            #st.image(canvas_result.image_data)
+            # Convertir la imagen a formato RGB
+            image = Image.fromarray(canvas_result.image_data.astype('uint8'), 'RGBA')
+            image = image.convert('RGB')
+            # Realizar predicción en el dibujo
+            results = model(image)
+            # Mostrar los resultados de la predicción
+            im = results[0].plot()
+            st.image(im)
         else:
             st.write("No hay imagen")
 
 with tab2:
     import streamlit as st
-
     st.header("Sube una imágen")
     source_img = st.file_uploader(
     "Escoge una imágen...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
-
     if st.button("Predecir imagen"):
         if source_img is not None:
             st.write("Imagen procesada")
-            st.image(source_img)
-            type(source_img)
-            #aqui irá el modelo 
-            #result = model(source_img, imgsz = 640)
-            #im = result[0].plot()
-            #cv2_imshow(im)
+            #st.image(source_img)
+            # Convertir la imagen a formato RGB
+            image = Image.open(source_img)
+            image = image.convert('RGB')
+            # Realizar predicción en la imagen subida
+            results = model(image)
+            # Mostrar los resultados de la predicción
+            im = results[0].plot()
+            st.image(im)
         else:
             st.write("No hay imagen")
