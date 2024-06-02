@@ -23,7 +23,8 @@ with tab1:
     if drawing_mode == 'point':
         point_display_radius = st.slider("Tamaño del punto: ", 1, 25, 3)
     stroke_color = st.color_picker("Color: ")
-    bg_color = st.color_picker("Background color hex: ", "#eee")
+    #FFFDFD - Color blanco del fondo on default, necesario
+    bg_color = st.color_picker("Background color hex: ", "#FFFDFD")
 
     realtime_update = st.checkbox("Actualizar en tiempo real", True)
 
@@ -47,11 +48,15 @@ with tab1:
             st.write("Imagen procesada")
             st.image(canvas_result.image_data)
             #aqui irá el modelo 
+            #result = model(canvas_result.image_data, imgsz = 640)
+            #im = result[0].plot()
+            #cv2_imshow(im)
         else:
             st.write("No hay imagen")
 
 with tab2:
     import streamlit as st
+
     st.header("Sube una imágen")
     source_img = st.file_uploader(
     "Escoge una imágen...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
@@ -60,6 +65,10 @@ with tab2:
         if source_img is not None:
             st.write("Imagen procesada")
             st.image(source_img)
+            type(source_img)
             #aqui irá el modelo 
+            #result = model(source_img, imgsz = 640)
+            #im = result[0].plot()
+            #cv2_imshow(im)
         else:
             st.write("No hay imagen")
