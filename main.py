@@ -86,7 +86,7 @@ with tab2:
     "Escoge una imágen...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
     
     modelos_disponibles = {'Modelo 1 (best.pt)': model, 'Modelo 2 (last.pt)': model2}
-    option = st.selectbox("Escoja modelo: ", list(modelos_disponibles.keys()))
+    option = st.selectbox("Escojaa modelo: ", list(modelos_disponibles.keys()))
 
     if st.button("Predecir imagen"):
         if source_img is not None:
