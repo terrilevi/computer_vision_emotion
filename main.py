@@ -17,7 +17,7 @@ with tab1:
     if drawing_mode == 'point':
         point_display_radius = st.slider("Tamaño del punto: ", 1, 25, 3)
     stroke_color = st.color_picker("Color: ")
-    #bg_color = st.color_picker("Background color hex: ", "#eee")
+    bg_color = st.color_picker("Background color hex: ", "#eee")
 
     realtime_update = st.checkbox("Actualizar en tiempo real", True)
 
@@ -26,7 +26,7 @@ with tab1:
         fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
         stroke_width=stroke_width,
         stroke_color=stroke_color,
-        #background_color=bg_color,
+        background_color=bg_color,
         update_streamlit=realtime_update,
         height=150,
         drawing_mode=drawing_mode,
