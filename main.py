@@ -7,7 +7,7 @@ from ultralytics import YOLO
 #import yolov8
 
 #Importando MODELO
-#model = YOLO('best.pt')
+model = YOLO('best.pt')
 
 tab1, tab2 = st.tabs(["Haz un  dibujito ✍️", "Sube una imágen ⬆️"])
 
