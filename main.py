@@ -5,7 +5,6 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 from ultralytics import YOLO
 import yolov8
-import ultralytics.utils
 
 #Importando MODELO
 model = YOLO('best.pt')
