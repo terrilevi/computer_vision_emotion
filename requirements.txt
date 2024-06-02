@@ -2,7 +2,6 @@ streamlit>=0.88
 streamlit-drawable-canvas>=0.8
 svgpathtools
 svgwrite
-streamlit
 folium
 streamlit_folium
 plotly
@@ -10,13 +9,9 @@ numpy
 pandas
 matplotlib
 Pillow
-openpyxl
-geopandas
-shapely
-networkx
 pandas
 networkx
 matplotlib
-streamlit
-openpyxl
 pyvis
+yolov8
+ultralytics
