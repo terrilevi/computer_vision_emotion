@@ -91,10 +91,15 @@ with tab2:
     if st.button("Predecir imagen"):
         if source_img is not None:
 
+            st.image(source_img)
+            
+            # Leer la imagen subida con OpenCV sin modificar el color
+            file_bytes = np.asarray(bytearray(source_img.read()), dtype=np.uint8)
+            image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+            
             # Convertir la imagen a formato RGB
-            image = Image.open(source_img)
-            image = image.convert('RGB')
-
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            
             # Obtener el modelo seleccionado
             selected_model = modelos_disponibles[option]
 
