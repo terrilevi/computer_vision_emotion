@@ -5,7 +5,7 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import ultralytics
 from ultralytics import YOLO
-
+from numpy as np
 st.image("logo-upch-ing-des.webp", use_column_width=True)
 
 #Importando MODELO
